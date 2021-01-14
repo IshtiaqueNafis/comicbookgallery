@@ -51,6 +51,10 @@ namespace WebApplication1.Data
         Favorite = false
     }
 };
+
+        public ComicBook[] GetComicBooks() => _comicBooks;
+        
+
         public ComicBook GetComicBook(int id)
         {
             ComicBook comicBookToReturn = null; // it is null at the begining cause through id the value will change 

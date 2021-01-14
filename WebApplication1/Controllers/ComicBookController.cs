@@ -13,6 +13,11 @@ namespace WebApplication1.Controllers
             _comicBookRepisotory = new ComicBookRepisotory(); 
         }
 
+        public ActionResult Index()
+        {
+            return View(_comicBookRepisotory.GetComicBooks());
+        }
+
         public ActionResult Detail(int? id) // this exepcts a id now so link will be like comicbook/dettial/? ffollowed by any id ? means null 
         {
             if (id == null)
