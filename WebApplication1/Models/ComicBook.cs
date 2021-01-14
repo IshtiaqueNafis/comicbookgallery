@@ -8,5 +8,8 @@ namespace WebApplication1.Models
         public string DescriptionHTML { get; set; } // this will have html based strings
         public Artists[] Artists { get; set; }
         public bool Favourite { get; set; }
+  
+        public string DisplayText => $"{SeriesTitle} # {IssueNumber}"; 
+        public string CoverImageFileName => $"{SeriesTitle.Replace(" ", "-").ToLower()}- {IssueNumber}.jpg";
     }
 }
