@@ -1,6 +1,18 @@
 
 @{
     Layout = null;
+    var seriesTitle = "The Amazing Spider-Man";
+    var issueNumber = 700;
+    var description = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>";
+    var artists = new string[]
+    {
+        "Script: Dan Slott",
+        "Pencils: Humberto Ramos",
+        "Inks: Victor Olazaba",
+        "Colors: Edgar Delgado",
+        "Letters: Chris Eliopoulos"
+    };
+    
 }
 <!doctype html>
 <html lang="en">
@@ -11,7 +23,13 @@
              <title>Document</title>
 </head>
 <body>
-  <h2>hello from comicbook</h2>
+<h2>@seriesTitle</h2>
+<h2>@issueNumber</h2>
+@Html.Raw(description)
+@foreach(string artist in artists)
+    {
+       <p>@artist</p>
+    }
 </body>
 </html>
 
