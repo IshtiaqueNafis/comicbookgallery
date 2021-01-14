@@ -15,7 +15,8 @@ namespace WebApplication1.Controllers
 
         public ActionResult Index()
         {
-            return View(_comicBookRepisotory.GetComicBooks());
+            var comicBooks = _comicBookRepisotory.GetComicBooks();
+            return View(comicBooks);
         }
 
         public ActionResult Detail(int? id) // this exepcts a id now so link will be like comicbook/dettial/? ffollowed by any id ? means null 

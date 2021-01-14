@@ -1,6 +1,22 @@
 @model WebApplication1.Models.ComicBook[]
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Comic Book gallery";
 }
-<h2>Index</h2>
+<div class="row">
+        @foreach (var comicbook in Model)
+        {
+    <div class="col-md-3">
+        <h4> @Html.ActionLink(@comicbook.DisplayText,"Detail",new {id=comicbook.Id})</h4> <!-- in the url action passed html.action link link to create a cliablae page-->
+        <a href="@Url.Action("Detail",new {id=comicbook.Id})"> <!-- in the url action passed HTML.action link link to create a cliablae page-->
+        <img src="/Images/@comicbook.CoverImageFileName"
+             alt="@comicbook.CoverImageFileName"
+             class="img-responsive"/>
+        </a>
+            
+            
+            
+     </div>
+        }
+</div>
