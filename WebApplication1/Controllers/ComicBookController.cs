@@ -1,29 +1,26 @@
 using System.Web.Mvc;
+using WebApplication1.Data;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
     public class ComicBookController:Controller
     {
-        public ActionResult Detail()
+        private ComicBookRepisotory _comicBookRepisotory = null;
+
+        public ComicBookController() // constrcutor this will get all the things for comicbookrepisotory
         {
-            var comicBook = new ComicBook()
-            { Id=1,
-              SeriesTitle = "The Amazing Spider-Man",
-              IssueNumber = 700,
-              DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
-              Artists = new Artists[]
-              { 
-                  new Artists() {Role = "Script",Name = "Dan Slott"},
-                  new Artists() {Role = "Pencils",Name = "Humberto Ramos"},
-                  new Artists() {Role = "Inks",Name = "Victor Olazaba"},
-                  new Artists() {Role = "Colors",Name = "Edgar Delgado"},
-                  new Artists() {Role = "Letters",Name = "Chris Eliopoulos"},
-              }
-              
-            };
-            
-            
+            _comicBookRepisotory = new ComicBookRepisotory(); 
+        }
+
+        public ActionResult Detail(int? id) // this exepcts a id now so link will be like comicbook/dettial/? ffollowed by any id ? means null 
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            var comicBook = _comicBookRepisotory.GetComicBook((int) id);
             return View(comicBook); // view will alwways return a comicbook here 
         }
     }
