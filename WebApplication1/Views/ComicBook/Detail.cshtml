@@ -14,7 +14,7 @@
         <div class="well">
             <h5><label>Series Title:</label> @Model.SeriesTitle</h5>
             <h5><label>Issue #:</label> @Model.IssueNumber</h5>
-            <h5><label>Favorite:</label> @Model.Favourite?"YES":"NO" </h5>
+            <h5><label>Favorite:</label> @Model.Favorite?"YES":"NO" </h5>
             <h5>Artists:</h5>
             <div>
                 <ul>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <h5>Description</h5>
-        @Html.Raw(@Model.DescriptionHTML)
+        @Html.Raw(@Model.DescriptionHtml)
     </div>
     <div class="col-md-6">
         <img src="/Images/@Model.CoverImageFileName" 
