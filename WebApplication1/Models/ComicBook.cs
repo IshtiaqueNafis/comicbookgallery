@@ -10,6 +10,6 @@ namespace WebApplication1.Models
         public bool Favourite { get; set; }
   
         public string DisplayText => $"{SeriesTitle} # {IssueNumber}"; 
-        public string CoverImageFileName => $"{SeriesTitle.Replace(" ", "-").ToLower()}- {IssueNumber}.jpg";
+        public string CoverImageFileName => $"{SeriesTitle.Replace(" ", "-").ToLower()}-{IssueNumber}.jpg";
     }
 }

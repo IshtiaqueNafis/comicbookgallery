@@ -8,13 +8,30 @@
 }
 
 <h2>@Model.SeriesTitle</h2>
-<h2>Issue#@Model.IssueNumber</h2> 
 
-<h5>Desciprion</h5>
-<h5>Artists</h5>
-<div>@Html.Raw(@Model.DescriptionHTML)</div>
-@foreach(Artists artist in Model.Artists )
-    {
-       <p>@artist.Role : @artist.Name</p>
-    }
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <h5><label>Series Title:</label> @Model.SeriesTitle</h5>
+            <h5><label>Issue #:</label> @Model.IssueNumber</h5>
+            <h5><label>Favorite:</label> @Model.Favourite?"YES":"NO" </h5>
+            <h5>Artists:</h5>
+            <div>
+                <ul>
+                   @foreach(Artists artist in Model.Artists )
+                       {
+                          <li>@artist.Role : @artist.Name</li>
+                       }
+                </ul>
+            </div>
+        </div>
+        <h5>Description</h5>
+        @Html.Raw(@Model.DescriptionHTML)
+    </div>
+    <div class="col-md-6">
+        <img src="/Images/@Model.CoverImageFileName" 
+            alt="@Model.SeriesTitle" class="img-responsive" />
+    </div>
+</div>
+
 
