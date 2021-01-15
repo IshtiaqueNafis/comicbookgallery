@@ -4,6 +4,8 @@ A basic MVC Application for showing comic books
 ## Installation
 Visual Studio with asp.net 4.7.2 support 
 ___
+## UML CLass DIagram
+![homepage](img/comicbook.jpg)
 
 ## Screenshots
 ---
